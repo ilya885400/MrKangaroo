@@ -18,27 +18,48 @@
     </nav>
 
     <section class="tracks">
-        <div class="track">
-            <h3>Название трека 1</h3>
-            <audio controls>
-                <source src="audio/song1.mp3" type="audio/mpeg">
-                Ваш браузер не поддерживает аудио.
-            </audio>
-            <a href="audio/song1.mp3" download>Скачать</a>
-        </div>
-
-        <div class="track">
-            <h3>Название трека 2</h3>
-            <audio controls>
-                <source src="audio/song2.mp3" type="audio/mpeg">
-                Ваш браузер не поддерживает аудио.
-            </audio>
-            <a href="audio/song2.mp3" download>Скачать</a>
-        </div>
+        <!-- Треки будут добавлены с помощью JavaScript -->
     </section>
 
     <footer>
         <p>© 2024 Иван Петров</p>
     </footer>
+
+    <script>
+        // Массив с именами аудиофайлов
+        const audioFiles = [
+            "audio/Improvize22025-02-14 20_06_47.mp3",
+            "audio/AnotherSong2025-03-01 15_30_00.mp3", // Добавьте другие файлы
+        ];
+
+        // Функция для извлечения названия трека из имени файла
+        function getTrackName(filePath) {
+            // Убираем путь и расширение файла
+            const fileName = filePath.split('/').pop(); // Получаем имя файла
+            return fileName.replace('.mp3', ''); // Убираем расширение .mp3
+        }
+
+        // Функция для создания HTML-кода для каждого трека
+        function createTrackElement(filePath) {
+            const trackName = getTrackName(filePath);
+
+            return `
+                <div class="track">
+                    <h3>${trackName}</h3>
+                    <audio controls>
+                        <source src="${filePath}" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио.
+                    </audio>
+                    <a href="${filePath}" download>Скачать</a>
+                </div>
+            `;
+        }
+
+        // Добавляем треки на страницу
+        const tracksSection = document.querySelector('.tracks');
+        audioFiles.forEach(file => {
+            tracksSection.innerHTML += createTrackElement(file);
+        });
+    </script>
 </body>
 </html>
