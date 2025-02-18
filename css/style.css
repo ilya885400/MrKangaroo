@@ -11,9 +11,8 @@ body {
     font-family: 'Black Ops One', sans-serif;
     text-align: center;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Убирает горизонтальный скролл */
 }
-
 
 /* Заголовок */
 header {
@@ -67,6 +66,8 @@ nav a:hover {
     border: 4px solid rgba(255, 0, 128, 0.8);
     filter: grayscale(30%) drop-shadow(0 0 15px rgba(255, 0, 128, 0.8));
     transition: all 0.3s ease;
+    width: 100%; /* делает изображение адаптивным */
+    height: auto; /* сохраняет пропорции */
 }
 
 .about img:hover {
@@ -101,4 +102,30 @@ button:hover {
     background: rgba(0, 255, 128, 0.8);
     color: #000;
     text-shadow: 0 0 10px rgba(0, 255, 128, 0.8);
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 768px) {
+    header {
+        font-size: 24px; /* уменьшает размер шрифта на меньших экранах */
+    }
+
+    .about {
+        max-width: 95%; /* увеличивает доступную ширину на мобильных устройствах */
+        padding: 15px;
+    }
+
+    footer {
+        font-size: 12px; /* уменьшает размер шрифта в футере */
+    }
+
+    nav a {
+        padding: 8px 15px; /* уменьшает отступы в навигации */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 20px; /* еще больше уменьшает размер шрифта */
+    }
 }
