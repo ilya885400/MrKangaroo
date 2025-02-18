@@ -129,3 +129,56 @@ button:hover {
         font-size: 20px; /* еще больше уменьшает размер шрифта */
     }
 }
+.track {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    margin: 15px auto;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Ограничение длины названия трека */
+.track h3 {
+    flex-grow: 1;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+/* Стилизация плеера */
+audio {
+    flex-grow: 1;
+    max-width: 250px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+}
+
+/* Кнопка скачивания */
+.track a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    background: rgba(255, 0, 128, 0.5);
+    color: #000;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+
+.track a:hover {
+    background: rgba(255, 0, 128, 0.8);
+}
